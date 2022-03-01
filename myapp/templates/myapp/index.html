@@ -1,4 +1,16 @@
 {% extends 'base/base.html' %} {% block content %}
 <h1>Hello world!</h1>
-<p>I was brought to you by the myapp index view.</p>
-{% endblock %}
+<p>I was brought to you by the myapp index view. Now view some flowers:</p>
+
+{% for flower in flowers %}
+<div class="card">
+  <h4 class="card-tile">{{ flower.title }}</h4>
+  <p class="card-text">{{ flower.description | truncatechars:100 }}</p>
+  <a href="/admin/myapp/flower/{{ flower.id }}/change/" class="card-link"
+    >Edit</a
+  >
+  <a href="/admin/myapp/flower/{{ flower.id }}/delete/" class="card-link"
+    >Delete</a
+  >
+</div>
+{% endfor %} {% endblock %}
