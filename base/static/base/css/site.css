@@ -1,0 +1,14 @@
+h1 {
+  color: rgb(70, 70, 70);
+  margin-bottom: 5px;
+  font-family: Montserrat;
+}
+
+body {
+  font-family: "Open Sans";
+  font-size: 20px;
+}
+
+p {
+  margin-top: 5px;
+}
