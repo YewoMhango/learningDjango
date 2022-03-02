@@ -14,11 +14,12 @@ body {
   font-size: 20px;
 }
 
-.card {
+.url-card {
   text-align: center;
   border: 2px grey solid;
   padding: 15px;
   margin: 15px;
+  cursor: pointer;
 }
 
 a {

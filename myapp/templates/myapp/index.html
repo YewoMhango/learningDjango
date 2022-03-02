@@ -3,7 +3,7 @@
 <p>I was brought to you by the myapp index view. Now view some flowers:</p>
 
 {% for flower in flowers %}
-<div class="card">
+<div class="url-card" onclick="location=`{% url 'detail' flower.slug %}`">
   <h4 class="card-tile">{{ flower.title }}</h4>
   <p class="card-text">{{ flower.description | truncatechars:100 }}</p>
   <a href="/admin/myapp/flower/{{ flower.id }}/change/" class="card-link"
