@@ -6,6 +6,7 @@
 <div class="url-card" onclick="location=`{% url 'detail' flower.slug %}`">
   <h4 class="card-tile">{{ flower.title }}</h4>
   <p class="card-text">{{ flower.description | truncatechars:100 }}</p>
+  <a href="#" class="card-link">{{ flower.category }}</a>
   <a href="/admin/myapp/flower/{{ flower.id }}/change/" class="card-link"
     >Edit</a
   >
