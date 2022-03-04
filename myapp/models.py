@@ -3,6 +3,18 @@ from django.db import models
 from django.urls import reverse
 
 
+class Tag(models.Model):
+    title = models.CharField(max_length=255, default='')
+    slug = models.SlugField(blank=True, default='')
+
+    def __str__(self) -> str:
+        return self.title
+
+    def save(self, *args, **kwargs) -> None:
+        self.slug = slugify(self.title)
+        super(Tag, self).save()
+
+
 class Category(models.Model):
     title = models.CharField(max_length=255, default='')
 
@@ -15,6 +27,7 @@ class Flower(models.Model):
     description = models.TextField(default='')
     slug = models.SlugField(blank=True, default='')
     category = models.ForeignKey(Category, null=True, on_delete=models.PROTECT)
+    tags = models.ManyToManyField(Tag)
 
     def __str__(self) -> str:
         return self.title

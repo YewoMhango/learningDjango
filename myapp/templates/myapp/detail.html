@@ -1,6 +1,8 @@
 {% extends 'base/base.html' %} {% block content %}
 
-<a href="../../">Back</a>
+<title>{{ page_title }}</title>
+
+<a href="../../">Home</a>
 
 <div class="jumbotron">
   <h1>{{ flower.title }}</h1>
@@ -12,6 +14,9 @@
 All flowers in the <strong>{{ flower.category }}</strong> category:
 <br />
 {% for c_flower in flower.category.flower_set.all %}
-<a href="#">{{ c_flower }}</a>
+<a href="{% url 'detail' c_flower.slug %}">{{ c_flower }}</a>
 <br />
-{% endfor %} {% endblock %}
+{% endfor %}
+<hr />
+Tags: {% for tag in flower.tags.all %}
+<a href="{% url 'tags' tag.slug %}">{{ tag }}</a>, {% endfor %} {% endblock %}

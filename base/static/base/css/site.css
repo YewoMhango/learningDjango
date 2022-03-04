@@ -36,3 +36,39 @@ a {
 hr {
   border-color: white;
 }
+
+.cards-container {
+  display: grid;
+  --columns: 1;
+  grid-template-columns: repeat(var(--columns), 1fr);
+}
+
+@media screen and (min-width: 700px) {
+  .cards-container {
+    --columns: 2;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cards-container {
+    --columns: 3;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  .cards-container {
+    --columns: 4;
+  }
+}
+
+@media screen and (min-width: 2200px) {
+  .cards-container {
+    --columns: 5;
+  }
+}
+
+@media screen and (min-width: 2700px) {
+  .cards-container {
+    --columns: 6;
+  }
+}
