@@ -13,13 +13,26 @@
     />
   </head>
   <body>
-    <nav>
-      <a href="{% url 'index' %}" class="home-link">
-        <img src="{% static 'base/favicon.ico' %}" alt="Yewo Favicon" />
-        Flowers
-      </a>
-    </nav>
-    <div id="content">{% block content %} {% endblock %}</div>
+    <div>
+      <nav>
+        <a href="{% url 'index' %}" class="home-link">
+          <img src="{% static 'base/favicon.ico' %}" alt="Yewo Favicon" />
+          Flowers
+        </a>
+        <form action="/" method="get">
+          <input
+            id="q"
+            name="q"
+            value="{{ request.GET.q }}"
+            type="search"
+            placeholder="Search..."
+            aria-label="Search"
+          />
+          <button type="submit">Search</button>
+        </form>
+      </nav>
+      <main id="content">{% block content %} {% endblock %}</main>
+    </div>
     <footer>
       <div class="main">Copyright &copy; Yewo Mhango 2022</div>
       <div class="subordinate">

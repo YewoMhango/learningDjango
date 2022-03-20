@@ -1,9 +1,14 @@
-{% extends 'base/base.html' %} {% block content %}
+{% extends 'base/base.html' %} {% block content %} {% load static %}
 
 <title>{{ page_title }}</title>
 
 <div class="jumbotron">
-  <h1>{{ flower.title }}</h1>
+  <h1>
+    {{ flower.title }}
+    <a href="/admin/myapp/flower/{{ flower.id }}/change/">
+      <img src="{% static 'base/images/edit.svg' %}" alt="" height="30px" />
+    </a>
+  </h1>
   <div class="flowerDescription">{{ flower.description }}</div>
 </div>
 

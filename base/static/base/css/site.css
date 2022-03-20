@@ -24,6 +24,10 @@ h6 {
   font-family: Montserrat;
 }
 
+button {
+  cursor: pointer;
+}
+
 body {
   font-family: "Open Sans";
   font-size: 20px;
@@ -34,9 +38,9 @@ body {
   margin: 0;
 }
 
-body > div#content {
+body > div > main#content {
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px;
   max-width: 900px;
 }
 
@@ -45,6 +49,10 @@ nav {
   height: 50px;
   padding: 12px;
   color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 nav a.home-link img {
@@ -74,6 +82,30 @@ footer a {
 nav,
 footer {
   color: white;
+}
+
+nav form {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+nav form * {
+  height: 100%;
+}
+
+nav input {
+  margin-right: 8px;
+  border: none;
+  padding: 5px;
+}
+
+nav form button {
+  border: 1px white solid;
+  background: transparent;
+  color: white;
+  font-weight: bold;
 }
 
 footer {
@@ -114,6 +146,11 @@ hr {
   display: grid;
   --columns: 1;
   grid-template-columns: repeat(var(--columns), 1fr);
+}
+
+.nothing-to-show {
+  color: grey;
+  font-weight: bold;
 }
 
 @media screen and (min-width: 700px) {
