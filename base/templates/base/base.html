@@ -13,6 +13,19 @@
     />
   </head>
   <body>
+    <nav>
+      <a href="{% url 'index' %}" class="home-link">
+        <img src="{% static 'base/favicon.ico' %}" alt="Yewo Favicon" />
+        Flowers
+      </a>
+    </nav>
     <div id="content">{% block content %} {% endblock %}</div>
+    <footer>
+      <div class="main">Copyright &copy; Yewo Mhango 2022</div>
+      <div class="subordinate">
+        Based on
+        <a href="https://samuli.to/Django-The-Easy-Way">Django the Easy Way</a>
+      </div>
+    </footer>
   </body>
 </html>
