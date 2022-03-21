@@ -16,7 +16,7 @@ h5,
 h6 {
   color: rgb(60, 60, 60);
   margin-bottom: 5px;
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
 }
 
 button {
