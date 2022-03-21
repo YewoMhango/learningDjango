@@ -27,7 +27,7 @@ def detail(request: HttpRequest, slug=None):
 def tags(request: HttpRequest, slug=None):
     flowers = Flower.objects.filter(tags__slug=slug)
 
-    return render(request, 'myapp/index.html', {'flowers': flowers, 'page_title': 'Flowers tagged with "' + slug + '"'})
+    return render(request, 'myapp/index.html', {'flowers': flowers, 'page_title': 'Flowers tagged with “' + slug + '”'})
 
 
 def add(request: HttpRequest):
@@ -39,7 +39,7 @@ def add(request: HttpRequest):
     else:
         form = FlowerEditForm()
 
-    return render(request, "myapp/edit.html", {'form': form})
+    return render(request, "myapp/edit.html", {'form': form, 'page_title': 'Add a flower'})
 
 
 def edit(request: HttpRequest, pk: int = None):
@@ -52,4 +52,4 @@ def edit(request: HttpRequest, pk: int = None):
     else:
         form = FlowerEditForm(instance=flower)
 
-    return render(request, 'myapp/edit.html', {'form': form})
+    return render(request, 'myapp/edit.html', {'form': form, 'page_title': 'Edit “' + flower.title + '”'})
