@@ -11,7 +11,7 @@ class FlowerEditForm(ModelForm):
     description = forms.CharField(label='Description', widget=forms.Textarea(
         attrs={'class': 'form-control'}))
     tags = forms.ModelMultipleChoiceField(
-        Tag.objects.all(), label="Tags", widget=forms.SelectMultiple(attrs={'class': 'form-control'}))
+        Tag.objects.all(), label="Tags", widget=forms.SelectMultiple(attrs={'class': 'form-control'}), required=False)
     category = forms.ModelChoiceField(Category.objects.all(
     ), label="Category", widget=forms.Select(attrs={'class': 'form-control'}))
 
