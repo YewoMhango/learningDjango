@@ -40,3 +40,16 @@ def add(request: HttpRequest):
         form = FlowerEditForm()
 
     return render(request, "myapp/edit.html", {'form': form})
+
+
+def edit(request: HttpRequest, pk: int = None):
+    flower = get_object_or_404(Flower, pk=pk)
+    if request.method == "POST":
+        form = FlowerEditForm(request.POST, instance=flower)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/")
+    else:
+        form = FlowerEditForm(instance=flower)
+
+    return render(request, 'myapp/edit.html', {'form': form})

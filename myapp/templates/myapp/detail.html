@@ -5,7 +5,7 @@
 <div class="jumbotron">
   <h1>
     {{ flower.title }}
-    <a href="/admin/myapp/flower/{{ flower.id }}/change/">
+    <a href="{% url 'edit' pk=flower.pk %}">
       <img src="{% static 'base/images/edit.svg' %}" alt="" height="30px" />
     </a>
   </h1>
