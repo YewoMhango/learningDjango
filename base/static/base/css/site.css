@@ -218,6 +218,35 @@ hr {
   border-radius: 5px;
 }
 
+.delete-flower-form button {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  /* float: right; */
+}
+
+.delete-flower-form form {
+  display: inline-block;
+  margin-left: 50px;
+}
+
+.delete-flower-form a {
+  display: inline-block;
+}
+
+.delete-flower-form .yes {
+  background-color: rgb(255, 0, 0);
+}
+
+.delete-flower-form .no {
+  background-color: rgb(118, 172, 118);
+}
+
 @media screen and (min-width: 700px) {
   .cards-container {
     --columns: 2;

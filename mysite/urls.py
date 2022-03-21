@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('flower/add/', myapp_views.add, name='add'),
     path('flower/edit/<int:pk>/', myapp_views.edit, name='edit'),
+    path('flower/delete/<int:pk>', myapp_views.delete, name='delete'),
     path('flower/<slug:slug>/', myapp_views.detail, name='detail'),
     path('tags/<slug:slug>/', myapp_views.tags, name='tags'),
     path('', myapp_views.index, name='index'),

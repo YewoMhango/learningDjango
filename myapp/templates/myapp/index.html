@@ -10,9 +10,7 @@
     <h4 class="card-tile">{{ flower.title }}</h4>
     <p class="card-text">{{ flower.description | truncatechars:100 }}</p>
     <a href="{% url 'edit' pk=flower.pk %}" class="card-link">Edit</a>
-    <a href="/admin/myapp/flower/{{ flower.id }}/delete/" class="card-link"
-      >Delete</a
-    >
+    <a href="{% url 'delete' pk=flower.pk %}" class="card-link">Delete</a>
   </div>
   {% endfor %}
 </div>

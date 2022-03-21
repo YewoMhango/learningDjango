@@ -53,3 +53,12 @@ def edit(request: HttpRequest, pk: int = None):
         form = FlowerEditForm(instance=flower)
 
     return render(request, 'myapp/edit.html', {'form': form, 'page_title': 'Edit “' + flower.title + '”'})
+
+
+def delete(request: HttpRequest, pk: int = None):
+    flower = get_object_or_404(Flower, pk=pk)
+    if request.method == "POST":
+        flower.delete()
+        return HttpResponseRedirect("/")
+
+    return render(request, 'myapp/delete.html', {'flower': flower, 'page_title': 'Delete “' + flower.title + '”'})
