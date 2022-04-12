@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.contrib.auth.decorators import permission_required
 
 from myapp.forms import FlowerEditForm
 from myapp.models import Flower
@@ -30,6 +31,7 @@ def tags(request: HttpRequest, slug=None):
     return render(request, 'myapp/index.html', {'flowers': flowers, 'page_title': 'Flowers tagged with “' + slug + '”'})
 
 
+@permission_required("myapp.add_flower")
 def add(request: HttpRequest):
     if request.method == 'POST':
         form = FlowerEditForm(request.POST)
@@ -42,6 +44,7 @@ def add(request: HttpRequest):
     return render(request, "myapp/edit.html", {'form': form, 'page_title': 'Add a flower'})
 
 
+@permission_required("myapp.change_flower")
 def edit(request: HttpRequest, pk: int = None):
     flower = get_object_or_404(Flower, pk=pk)
     if request.method == "POST":
@@ -55,6 +58,7 @@ def edit(request: HttpRequest, pk: int = None):
     return render(request, 'myapp/edit.html', {'form': form, 'page_title': 'Edit “' + flower.title + '”'})
 
 
+@permission_required("myapp.change_delete")
 def delete(request: HttpRequest, pk: int = None):
     flower = get_object_or_404(Flower, pk=pk)
     if request.method == "POST":

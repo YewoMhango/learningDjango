@@ -1,46 +1,61 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{% static 'base/css/site.css' %}" />
-    <link
-      rel="shortcut icon"
-      href="{% static 'base/favicon.ico' %}"
-      type="image/x-icon"
-    />
-  </head>
-  <body>
-    <div>
-      <nav>
-        <a href="{% url 'index' %}" class="home-link">
-          <img src="{% static 'base/favicon.ico' %}" alt="Yewo Favicon" />
-          Flowers
-        </a>
-        <form action="/" method="get">
-          <a href="{% url 'add' %}">Add</a>
-          <span>|</span>
-          <input
-            id="q"
-            name="q"
-            value="{{ request.GET.q }}"
-            type="search"
-            placeholder="Search..."
-            aria-label="Search"
-          />
-          <button type="submit">Search</button>
-        </form>
-      </nav>
-      <main id="content">{% block content %} {% endblock %}</main>
-    </div>
-    <footer>
-      <div class="main">Copyright &copy; Yewo Mhango 2022</div>
-      <div class="subordinate">
-        Based on
-        <a href="https://samuli.to/Django-The-Easy-Way">Django the Easy Way</a>
-      </div>
-    </footer>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="{% static 'base/css/site.css' %}" />
+        <link
+            rel="shortcut icon"
+            href="{% static 'base/favicon.ico' %}"
+            type="image/x-icon"
+        />
+    </head>
+    <body>
+        <div>
+            <nav>
+                <a href="{% url 'index' %}" class="home-link">
+                    <img
+                        src="{% static 'base/favicon.ico' %}"
+                        alt="Yewo Favicon"
+                    />
+                    Flowers
+                </a>
+                <form action="/" method="get">
+                    {% if perms.myapp.add_flower %}
+                    <a href="{% url 'add' %}">Add flower</a>
+                    <span>|</span>
+                    {% endif%} {% if request.user.is_authenticated %}
+                    <a href="{% url 'account_logout' %}">Logout</a>
+                    <span>|</span>
+                    {% else %}
+                    <a href="{% url 'account_login' %}">Login</a>
+                    <span>|</span>
+                    <a href="{% url 'account_signup' %}">Sign-up</a>
+                    <span>|</span>
+                    {% endif %}
+                    <input
+                        id="q"
+                        name="q"
+                        value="{{ request.GET.q }}"
+                        type="search"
+                        placeholder="Search..."
+                        aria-label="Search"
+                    />
+                    <button type="submit">Search</button>
+                </form>
+            </nav>
+            <main id="content">{% block content %} {% endblock %}</main>
+        </div>
+        <footer>
+            <div class="main">Copyright &copy; Yewo Mhango 2022</div>
+            <div class="subordinate">
+                Based on
+                <a href="https://samuli.to/Django-The-Easy-Way"
+                    >Django the Easy Way</a
+                >
+            </div>
+        </footer>
+    </body>
 </html>

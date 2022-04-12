@@ -1,19 +1,26 @@
-{% extends 'base/base.html' %} {% block content %}
+<!-- prettier-ignore -->
+{% extends 'base/base.html' %} 
+{% block content %}
 
 <title>{{ page_title }}</title>
 
 <h2>{{ page_title }}</h2>
 
-<div class="cards-container">
-  {% for flower in flowers %}
-  <div class="url-card" onclick="location=`{% url 'detail' flower.slug %}`">
-    <h4 class="card-tile">{{ flower.title }}</h4>
-    <p class="card-text">{{ flower.description | truncatechars:100 }}</p>
-    <a href="{% url 'edit' pk=flower.pk %}" class="card-link">Edit</a>
-    <a href="{% url 'delete' pk=flower.pk %}" class="card-link">Delete</a>
-  </div>
-  {% endfor %}
-</div>
 {% if flower_count == 0 %}
 <p class="nothing-to-show">Nothing to show</p>
-{% endif %} {% endblock %}
+{% endif %}
+
+<div class="cards-container">
+    {% for flower in flowers %}
+    <div class="url-card" onclick="location=`{% url 'detail' flower.slug %}`">
+        <h4 class="card-tile">{{ flower.title }}</h4>
+        <p class="card-text">{{ flower.description | truncatechars:100 }}</p>
+        {% if perms.myapp.change_flower %}
+        <a href="{% url 'edit' pk=flower.pk %}" class="card-link">Edit</a>
+        {% endif %} {% if perms.myapp.delete_flower %}
+        <a href="{% url 'delete' pk=flower.pk %}" class="card-link">Delete</a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -3,13 +3,18 @@
 <title>{{ page_title }}</title>
 
 <div class="jumbotron">
-  <h1>
-    {{ flower.title }}
-    <a href="{% url 'edit' pk=flower.pk %}">
-      <img src="{% static 'base/images/edit.svg' %}" alt="" height="30px" />
-    </a>
-  </h1>
-  <div class="flowerDescription">{{ flower.description }}</div>
+    <h1>
+        {{ flower.title }} {% if perms.myapp.edit_flower %}
+        <a href="{% url 'edit' pk=flower.pk %}">
+            <img
+                src="{% static 'base/images/edit.svg' %}"
+                alt=""
+                height="30px"
+            />
+        </a>
+        {% endif %}
+    </h1>
+    <div class="flowerDescription">{{ flower.description }}</div>
 </div>
 
 <hr />
