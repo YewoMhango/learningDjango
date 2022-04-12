@@ -1,0 +1,14 @@
+{% load widget_tweaks %} {% for field in form %}
+<tr>
+    <td>{{ field.errors }}</td>
+</tr>
+<tr>
+    {% if field.field.widget.input_type != 'checkbox' %}
+    <td>
+        
+    {{ field|add_class:"form-control" }}</td>
+    {% else %}
+    <td>{{ field.label_tag }} {{field }}</td>
+    {% endif %}
+</tr>
+{% endfor %}

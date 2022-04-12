@@ -1,57 +1,57 @@
 {% extends 'base/base.html' %} {% block content %}
 <title>{{ page_title }}</title>
-<form class="edit-flower-form" action="" method="post">
-  <h2>{{ page_title }}</h2>
-  {% csrf_token %}
-  <div>
-    {{ form.non_field_errors }}
-    <table>
-      <tr>
-        <td></td>
-        <td>{{ form.title.errors }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.title.label_tag }}</td>
-        <td>{{ form.title }}</td>
-      </tr>
+<form class="form" action="" method="post">
+    <h2>{{ page_title }}</h2>
+    {% csrf_token %}
+    <div>
+        {{ form.non_field_errors }}
+        <table>
+            <tr>
+                <td></td>
+                <td>{{ form.title.errors }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.title.label_tag }}</td>
+                <td>{{ form.title }}</td>
+            </tr>
 
-      <tr>
-        <td></td>
-        <td>{{ form.description.errors }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.description.label_tag }}</td>
-        <td>{{ form.description }}</td>
-      </tr>
+            <tr>
+                <td></td>
+                <td>{{ form.description.errors }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.description.label_tag }}</td>
+                <td>{{ form.description }}</td>
+            </tr>
 
-      <tr>
-        <td></td>
-        <td>{{ form.tags.errors }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.tags.label_tag }}</td>
-        <td>{{ form.tags }}</td>
-      </tr>
+            <tr>
+                <td></td>
+                <td>{{ form.tags.errors }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.tags.label_tag }}</td>
+                <td>{{ form.tags }}</td>
+            </tr>
 
-      <tr>
-        <td></td>
-        <td>{{ form.category.errors }}</td>
-      </tr>
-      <tr>
-        <td>{{ form.category.label_tag }}</td>
-        <td>{{ form.category }}</td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <hr />
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <button type="submit">Submit</button>
-        </td>
-      </tr>
-    </table>
-  </div>
+            <tr>
+                <td></td>
+                <td>{{ form.category.errors }}</td>
+            </tr>
+            <tr>
+                <td>{{ form.category.label_tag }}</td>
+                <td>{{ form.category }}</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <hr />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 </form>
 {% endblock %}

@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 from myapp import views as myapp_views
 
@@ -25,5 +25,6 @@ urlpatterns = [
     path('flower/delete/<int:pk>', myapp_views.delete, name='delete'),
     path('flower/<slug:slug>/', myapp_views.detail, name='detail'),
     path('tags/<slug:slug>/', myapp_views.tags, name='tags'),
+    path('accounts/', include('allauth.urls')),
     path('', myapp_views.index, name='index'),
 ]
