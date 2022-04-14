@@ -4,7 +4,7 @@
 
 <div class="jumbotron">
     <h1>
-        {{ flower.title }} {% if perms.myapp.edit_flower %}
+        {{ flower.title }} {% if perms.myapp.change_flower %}
         <a href="{% url 'edit' pk=flower.pk %}">
             <img
                 src="{% static 'base/images/edit.svg' %}"
