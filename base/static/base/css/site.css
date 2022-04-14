@@ -131,9 +131,28 @@ footer .subordinate {
 .url-card {
     text-align: center;
     border: 2px grey solid;
-    padding: 15px;
     margin: 15px;
-    cursor: pointer;
+}
+
+.url-card h4 {
+    margin-top: 5px;
+}
+
+.card-text-container {
+    padding: 15px;
+}
+
+.card-img-link {
+    display: block;
+    width: 100%;
+    height: 150px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
 a {

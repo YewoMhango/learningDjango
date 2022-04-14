@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import permission_required
 
 from myapp.forms import FlowerEditForm
-from myapp.models import Flower
+from myapp.models import Flower, Tag
 
 
 def index(request: HttpRequest):

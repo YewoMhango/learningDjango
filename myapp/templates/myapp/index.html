@@ -12,14 +12,26 @@
 
 <div class="cards-container">
     {% for flower in flowers %}
-    <div class="url-card" onclick="location=`{% url 'detail' flower.slug %}`">
-        <h4 class="card-tile">{{ flower.title }}</h4>
-        <p class="card-text">{{ flower.description | truncatechars:100 }}</p>
-        {% if perms.myapp.change_flower %}
-        <a href="{% url 'edit' pk=flower.pk %}" class="card-link">Edit</a>
-        {% endif %} {% if perms.myapp.delete_flower %}
-        <a href="{% url 'delete' pk=flower.pk %}" class="card-link">Delete</a>
-        {% endif %}
+    <div class="url-card">
+        <a class="card-img-link" href="{% url 'detail' flower.slug %}">
+            <div
+                class="card-img"
+                style="background-image: url({{ flower.image.url }});"
+            ></div>
+        </a>
+        <div class="card-text-container">
+            <h4 class="card-title">{{ flower.title }}</h4>
+            <p class="card-text">
+                {{ flower.description | truncatechars:100 }}
+            </p>
+            {% if perms.myapp.change_flower %}
+            <a href="{% url 'edit' pk=flower.pk %}" class="card-link">Edit</a>
+            {% endif %} {% if perms.myapp.delete_flower %}
+            <a href="{% url 'delete' pk=flower.pk %}" class="card-link"
+                >Delete</a
+            >
+            {% endif %}
+        </div>
     </div>
     {% endfor %}
 </div>

@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.utils.text import slugify
 from django.db import models
 from django.urls import reverse
@@ -27,7 +28,8 @@ class Flower(models.Model):
     description = models.TextField(default='')
     slug = models.SlugField(blank=True, default='')
     category = models.ForeignKey(Category, null=True, on_delete=models.PROTECT)
-    tags = models.ManyToManyField(Tag)
+    tags = models.ManyToManyField(Tag, blank=True)
+    image = models.ImageField(default='', blank=True, upload_to="images")
 
     def __str__(self) -> str:
         return self.title

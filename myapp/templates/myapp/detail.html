@@ -1,4 +1,7 @@
-{% extends 'base/base.html' %} {% block content %} {% load static %}
+<!-- prettier-ignore -->
+{% extends 'base/base.html' %} 
+{% block content %} 
+{% load static %}
 
 <title>{{ page_title }}</title>
 
@@ -14,6 +17,15 @@
         </a>
         {% endif %}
     </h1>
+    <p>
+        <a href="{{ flower.image.url }}">
+            <img
+                src="{{ flower.image.url }}"
+                alt="Image of {{ flower.title }}"
+                height="300px"
+            />
+        </a>
+    </p>
     <div class="flowerDescription">{{ flower.description }}</div>
 </div>
 
