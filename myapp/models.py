@@ -3,6 +3,9 @@ from django.utils.text import slugify
 from django.db import models
 from django.urls import reverse
 
+from imagekit.models import ImageSpecField
+from pilkit.processors import ResizeToFill
+
 
 class Tag(models.Model):
     title = models.CharField(max_length=255, default='')
@@ -30,6 +33,12 @@ class Flower(models.Model):
     category = models.ForeignKey(Category, null=True, on_delete=models.PROTECT)
     tags = models.ManyToManyField(Tag, blank=True)
     image = models.ImageField(default='', blank=True, upload_to="images")
+    image_thumbnail = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(400, 300)],
+        format='JPEG',
+        options={'quality': 60}
+    )
 
     def __str__(self) -> str:
         return self.title

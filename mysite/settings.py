@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'base',
     'myapp',
+    'imagekit',
 ]
 
 SITE_ID = 1

@@ -55,10 +55,10 @@ def edit(request: HttpRequest, pk: int = None):
     else:
         form = FlowerEditForm(instance=flower)
 
-    return render(request, 'myapp/edit.html', {'form': form, 'page_title': 'Edit “' + flower.title + '”'})
+    return render(request, 'myapp/edit.html', {'form': form, 'flower': flower, 'page_title': 'Edit “' + flower.title + '”'})
 
 
-@permission_required("myapp.change_delete")
+@permission_required("myapp.delete_flower")
 def delete(request: HttpRequest, pk: int = None):
     flower = get_object_or_404(Flower, pk=pk)
     if request.method == "POST":

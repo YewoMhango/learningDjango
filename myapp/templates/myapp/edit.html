@@ -54,4 +54,9 @@
         </table>
     </div>
 </form>
+<p style="text-align: center">
+    <a href="{% url 'delete' pk=flower.pk %}" style="color: red">
+        Want to delete instead?
+    </a>
+</p>
 {% endblock %}
