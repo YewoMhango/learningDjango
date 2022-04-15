@@ -1,19 +1,24 @@
-{% extends 'base/base.html' %} {% block content %}
+<!-- prettier-ignore -->
+{% extends 'base/base.html' %} 
 
-<title>{{ page_title }}</title>
+{% block head_title %} 
+    {{ page_title }} 
+{% endblock %}
+
+{% block content %}
 
 <h3>Are you sure you want to delete &ldquo;{{ flower.title }}&rdquo;?</h3>
 <br />
 <br />
 
 <div class="delete-flower-form">
-  <a href="{% url 'index' %}">
-    <button class="no">No</button>
-  </a>
-  <form action="" method="post">
-    {% csrf_token %}
-    <button type="submit" class="yes">Yes</button>
-  </form>
+    <a href="{% url 'index' %}">
+        <button class="no">No</button>
+    </a>
+    <form action="" method="post">
+        {% csrf_token %}
+        <button type="submit" class="yes">Yes</button>
+    </form>
 </div>
 
 {% endblock %}

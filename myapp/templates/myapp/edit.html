@@ -1,5 +1,12 @@
-{% extends 'base/base.html' %} {% block content %}
-<title>{{ page_title }}</title>
+<!-- prettier-ignore -->
+{% extends 'base/base.html' %} 
+
+{% block head_title %} 
+    {{ page_title }} 
+{% endblock %}
+
+{% block content %}
+
 <form class="form" action="" method="post">
     <h2>{{ page_title }}</h2>
     {% csrf_token %}
@@ -54,9 +61,10 @@
         </table>
     </div>
 </form>
+{% if flower %}
 <p style="text-align: center">
     <a href="{% url 'delete' pk=flower.pk %}" style="color: red">
-        Want to delete instead?
+        Delete “{{flower.title}}” instead
     </a>
 </p>
-{% endblock %}
+{% endif %} {% endblock %}

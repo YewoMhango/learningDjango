@@ -1,14 +1,16 @@
 <!-- prettier-ignore -->
 {% extends "account/base.html" %} 
+
 {% load i18n %} 
 {% load account socialaccount %} 
+
 {% block head_title %}
-{% trans "Sign In" %}
+    {% trans "Sign In" %}
 {% endblock %} 
+
 {% block content %}
 
 <div class="auth">
-    <title>Sign in</title>
     <h1>{% trans "Sign In" %}</h1>
 
     <!-- prettier-ignore -->
